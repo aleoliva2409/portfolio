@@ -1,0 +1,42 @@
+---
+import SystemIcon from '@/assets/icons/SystemIcon.astro';
+
+const THEMES = ['Claro', 'Oscuro', 'Sistema'];
+---
+
+<div class='relative'>
+  <button
+    id='dropdown-button'
+    data-dropdown-toggle='dropdown'
+    class='flex items-center p-1.5 rounded-md hover:scale-110'
+    type='button'
+  >
+    <SystemIcon />
+  </button>
+  <ul
+    id='dropdown-menu'
+    class='text-sm z-10 absolute rounded-md w-32 right-0 bg-gray-700 hidden'
+    aria-labelledby='dropdown-button'
+  >
+    {
+      THEMES.map((theme) => (
+        <li class='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:rounded-md cursor-pointer'>
+          {theme}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  const btn = document.getElementById(
+    'dropdown-button'
+  ) as HTMLButtonElement;
+  const dropdown = document.getElementById('dropdown-menu') as HTMLDivElement;
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    dropdown.classList.toggle('hidden');
+  });
+</script>

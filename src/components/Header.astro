@@ -1,0 +1,49 @@
+---
+import ThemeSwitcher from './ThemeSwitcher.astro';
+
+interface Item {
+  title: string;
+  label: string;
+  url: string;
+}
+
+const navItems: Item[] = [
+  {
+    title: 'Experiencia',
+    label: 'experiencia',
+    url: '/#experience',
+  },
+  {
+    title: 'Proyectos',
+    label: 'proyectos',
+    url: '/#projects',
+  },
+  {
+    title: 'Sobre mí',
+    label: 'sobre-mi',
+    url: '/#about-me',
+  },
+  {
+    title: 'Contacto',
+    label: 'contacto',
+    url: 'mailto:alejandro.oliva2409@gmail.com',
+  },
+];
+---
+
+<header class='flex justify-center mt-2'>
+  <nav class='w-wrapper flex justify-evenly'>
+    {
+      navItems.map((link) => (
+        <a
+          class='p-1.5 rounded-md  hover:text-blue-600'
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+    <ThemeSwitcher />
+  </nav>
+</header>
