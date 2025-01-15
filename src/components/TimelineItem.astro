@@ -1,0 +1,28 @@
+---
+import type { Experience } from './Timeline.astro';
+
+export interface Props extends Experience {}
+
+const { position, company, period, description } = Astro.props;
+---
+
+<li class='mb-10 ml-5'>
+  <div
+    class='absolute size-3.5 bg-gray-300 rounded-full mt-1.5 -start-2 border border-white'
+  >
+  </div>
+  <div class='flex justify-between'>
+    <div class='w-4/12'>
+      <h3 class='text-lg font-semibold'>{position}</h3>
+      <h4 class='text-lg font-medium'>{company}</h4>
+      <time class='mb-1 text-sm font-normal leading-none text-gray-400'>
+        {period}
+      </time>
+    </div>
+    <div class='w-7/12'>
+      <p class='mb-4 text-base font-normal text-gray-400'>
+        {description}
+      </p>
+    </div>
+  </div>
+</li>
