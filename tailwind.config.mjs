@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       width: {
-        wrapper: '900px',
+        wrapper: '53.125rem',
       },
       fontFamily: {
         sans: ['Onest Variable', ...defaultTheme.fontFamily.sans],

@@ -1,19 +1,25 @@
 ---
+import Header from '@/components/Header.astro';
 import '@fontsource-variable/onest';
+
+interface Props {
+  lang: 'es' | 'en';
+  description: string;
+  title: string;
+}
+
+const { lang, description, title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='es'>
+<html lang={lang}>
   <head>
     <meta charset='UTF-8' />
-    <meta
-      name='description'
-      content='Me llamo Alejandro Oliva, soy full stack developer con más de 3 años de experiencia.'
-    />
+    <meta name='description' content={description} />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
-    <title>Alejandro Oliva</title>
+    <title>{title}</title>
   </head>
   <body class='font-sans'>
     <div
@@ -27,7 +33,9 @@ import '@fontsource-variable/onest';
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
     >
     </div> -->
-    <slot />
+    <main class='w-wrapper mx-auto'>
+      <slot />
+    </main>
   </body>
 </html>
 

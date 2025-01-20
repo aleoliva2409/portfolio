@@ -1,16 +1,14 @@
-<button
-  class='relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800'
->
-  <span
-    class='relative px-2 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-full group-hover:bg-opacity-0'
-  >
-    Disponible para trabajar
-  </span>
-</button>
+---
+interface Props {
+  classes?: string;
+}
+
+const { classes = '' } = Astro.props;
+---
 
 <button
+  class={`border border-gray-400 text-gray-600 px-3.5 py-1 rounded-full ${classes}`}
   type='button'
-  class='text-gray-900 text-sm font-medium bg-white border border-gray-300 outline-0 focus:outline-0 hover:bg-gray-100 rounded-full px-3 py-1'
 >
-  Light
+  <slot />
 </button>
