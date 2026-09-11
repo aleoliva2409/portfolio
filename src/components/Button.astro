@@ -1,0 +1,14 @@
+---
+interface Props {
+  classes?: string;
+}
+
+const { classes = '' } = Astro.props;
+---
+
+<button
+  class={`border border-gray-400 text-gray-600 px-3.5 py-1 rounded-full ${classes}`}
+  type='button'
+>
+  <slot />
+</button>

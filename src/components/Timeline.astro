@@ -1,0 +1,38 @@
+---
+import TimelineItem from './TimelineItem.astro';
+
+export interface Experience {
+  position: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
+const EXPERIENCES: Experience[] = [
+  {
+    position: 'Full Stack Developer',
+    company: 'Banco galicia',
+    period: 'Actualmente...',
+    description:
+      'Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.',
+  },
+  {
+    position: 'Full Stack Developer',
+    company: 'Grupo LPA',
+    period: 'Actualmente...',
+    description:
+      'Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.',
+  },
+  {
+    position: 'Full Stack Developer',
+    company: 'Aicore IT Solutions',
+    period: 'Agosto 2021 - Marzo 2022',
+    description:
+      'Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.',
+  },
+];
+---
+
+<ol class='relative border-s-2 border-gray-300'>
+  {EXPERIENCES.map((experience) => <TimelineItem {...experience} />)}
+</ol>
