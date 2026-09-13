@@ -2,5 +2,9 @@
 
 @theme {
   --font-sans: 'Onest Variable', ui-sans-serif, system-ui, sans-serif;
-  --width-wrapper: 53.125rem;
+}
+
+.w-wrapper {
+  width: 100%;
+  max-width: 53.125rem;
 }

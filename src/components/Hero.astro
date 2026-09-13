@@ -1,0 +1,49 @@
+---
+import MailIcon from '@/assets/icons/Mail.astro';
+import MediaLink from './MediaLink.astro';
+import GithubIcon from '@/assets/icons/Github.astro';
+import LinkedInIcon from '@/assets/icons/LinkedIn.astro';
+import SectionContainer from './SectionContainer.astro';
+---
+
+<SectionContainer id='Hero' classes='my-16 sm:my-24'>
+  <div class='flex flex-col items-start gap-4 sm:flex-row sm:items-center'>
+    <img
+      class='size-20 rounded-full object-cover'
+      src='/me.webp'
+      alt='Alejandro Oliva'
+    />
+    <a
+      href='https://www.linkedin.com/in/aleoliva-dev/'
+      target='_blank'
+      rel='noopener noreferrer'
+      class='rounded-full border border-green-800 bg-green-100 px-2.5 py-1 text-green-800'
+    >
+      Disponible para trabajar
+    </a>
+  </div>
+  <h1 class='py-5 text-4xl font-bold sm:text-5xl'>
+    Hola, soy <span class='text-blue-600'>Alejandro</span>
+  </h1>
+  <p class='max-w-2xl text-lg leading-8'>
+    +5 años de experiencia. Desarrollador Full Stack,{' '}
+    <span class='font-bold text-yellow-400'>
+      actualmente trabajando en Banco Galicia.{' '}
+    </span>
+    Me gusta crear aplicaciones web útiles, rápidas y fáciles de mantener.
+  </p>
+  <nav class='my-6 flex flex-wrap gap-2'>
+    <MediaLink href='mailto:alejandro.oliva2409@gmail.com'>
+      <MailIcon class='mr-1 size-4' />
+      Contáctame
+    </MediaLink>
+    <MediaLink href='https://www.linkedin.com/in/aleoliva-dev/'>
+      <LinkedInIcon class='mr-1 size-4' />
+      LinkedIn
+    </MediaLink>
+    <MediaLink href='https://github.com/aleoliva2409'>
+      <GithubIcon class='mr-1 size-4' />
+      GitHub
+    </MediaLink>
+  </nav>
+</SectionContainer>

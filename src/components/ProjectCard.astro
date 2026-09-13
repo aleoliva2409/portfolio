@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  technologies: string;
+  image?: string;
+  codeUrl?: string;
+  demoUrl?: string;
+}
+
+const { title, description, technologies, image, codeUrl, demoUrl } =
+  Astro.props;
+---
+
+<article class='overflow-hidden rounded-2xl border border-gray-200 bg-white'>
+  {
+    image && (
+      <img
+        src={image}
+        alt={`Captura de ${title}`}
+        class='h-48 w-full object-cover'
+      />
+    )
+  }
+
+  <div class='p-5'>
+    <h3 class='text-xl font-semibold'>{title}</h3>
+
+    <p class='mt-3 leading-7'>
+      {description}
+    </p>
+
+    <p class='mt-4 text-sm text-gray-500'>
+      {technologies}
+    </p>
+
+    {
+      (codeUrl || demoUrl) && (
+        <div class='mt-5 flex gap-3'>
+          {codeUrl && (
+            <a
+              href={codeUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-sm font-medium underline'
+            >
+              Código
+            </a>
+          )}
+
+          {demoUrl && (
+            <a
+              href={demoUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-sm font-medium underline'
+            >
+              Demo
+            </a>
+          )}
+        </div>
+      )
+    }
+  </div>
+</article>
