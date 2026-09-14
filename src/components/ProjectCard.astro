@@ -12,7 +12,9 @@ const { title, description, technologies, image, codeUrl, demoUrl } =
   Astro.props;
 ---
 
-<article class='overflow-hidden rounded-2xl border border-gray-200 bg-white'>
+<article
+  class='overflow-hidden rounded-2xl border border-line bg-surface/80 dark:border-line-dark dark:bg-surface-dark/80'
+>
   {
     image && (
       <img
@@ -30,7 +32,7 @@ const { title, description, technologies, image, codeUrl, demoUrl } =
       {description}
     </p>
 
-    <p class='mt-4 text-sm text-gray-500'>
+    <p class='mt-4 text-sm text-brand dark:text-brand-dark'>
       {technologies}
     </p>
 
@@ -42,7 +44,7 @@ const { title, description, technologies, image, codeUrl, demoUrl } =
               href={codeUrl}
               target='_blank'
               rel='noopener noreferrer'
-              class='text-sm font-medium underline'
+              class='text-sm font-medium text-accent underline hover:text-brand dark:text-accent-dark dark:hover:text-brand-dark'
             >
               Código
             </a>
@@ -53,7 +55,7 @@ const { title, description, technologies, image, codeUrl, demoUrl } =
               href={demoUrl}
               target='_blank'
               rel='noopener noreferrer'
-              class='text-sm font-medium underline'
+              class='text-sm font-medium text-accent underline hover:text-brand dark:text-accent-dark dark:hover:text-brand-dark'
             >
               Demo
             </a>

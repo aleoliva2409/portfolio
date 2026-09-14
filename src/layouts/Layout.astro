@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import Footer from '@/components/Footer.astro';
 
 interface Props {
   lang: 'es' | 'en';
@@ -19,11 +20,26 @@ const { lang, description, title } = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
+
+    <script is:inline>
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      ).matches;
+
+      if (theme === 'dark' || (theme !== 'light' && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
-  <body class='font-sans'>
+  <body
+    class='bg-surface font-sans text-ink transition-colors dark:bg-surface-dark dark:text-ink-dark'
+  >
     <div
-      class='absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]'
+      class='fixed inset-0 -z-10 bg-surface
+  bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(15,118,110,0.12),rgba(245,247,250,0.96))]
+  dark:bg-surface-dark
+  dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(94,234,212,0.10),rgba(16,24,32,0.98))]'
     >
     </div>
     <!-- <div
@@ -32,9 +48,10 @@ const { lang, description, title } = Astro.props;
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
     >
     </div> -->
-    <main class='w-wrapper mx-auto px-4 sm:px-6'>
+    <main class='w-wrapper mx-auto px-4 pt-20 sm:px-6'>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
 

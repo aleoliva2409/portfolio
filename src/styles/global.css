@@ -2,9 +2,51 @@
 
 @theme {
   --font-sans: 'Onest Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-surface: #f5f7fa;
+  --color-ink: #17202a;
+  --color-brand: #0f766e;
+  --color-accent: #f97360;
+  --color-line: #d7dee7;
+
+  --color-surface-dark: #101820;
+  --color-ink-dark: #e8f1f2;
+  --color-brand-dark: #5eead4;
+  --color-accent-dark: #ff8a75;
+  --color-line-dark: #2a3a43;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 .w-wrapper {
   width: 100%;
   max-width: 53.125rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    translate: 0 20px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+[data-section] {
+  animation: none;
+}
+
+@supports (animation-timeline: view()) {
+  [data-section] {
+    animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 18%;
+  }
 }

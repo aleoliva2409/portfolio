@@ -8,7 +8,7 @@ const { position, company, period, description } = Astro.props;
 
 <li class='mb-12 ml-5 md:ml-8'>
   <div
-    class='absolute -inset-s-2 mt-1.5 size-3.5 rounded-full border border-white bg-gray-300'
+    class='absolute -inset-s-2 mt-1.5 size-3.5 rounded-full border border-surface bg-brand'
   >
   </div>
 
@@ -18,16 +18,16 @@ const { position, company, period, description } = Astro.props;
         {position}
       </h3>
 
-      <h4 class='mt-1 text-lg font-medium'>
+      <h4 class='mt-1 text-lg font-medium text-brand'>
         {company}
       </h4>
 
-      <time class='mt-2 block text-sm text-gray-400'>
+      <time class='mt-2 block text-sm text-ink/60 dark:text-ink-dark/60'>
         {period}
       </time>
     </div>
 
-    <p class='leading-7 text-gray-400'>
+    <p class='leading-7 text-ink/70 dark:text-ink-dark/70'>
       {description}
     </p>
   </div>
