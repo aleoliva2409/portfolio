@@ -9,9 +9,11 @@ export type Lang = keyof typeof languages;
 
 export const ui = {
   es: {
-    'meta.title': 'Alejandro Oliva',
+    'meta.title': 'Alejandro Oliva | Full Stack Developer',
     'meta.description':
       'Me llamo Alejandro Oliva, soy full stack developer con más de 5 años de experiencia.',
+    'meta.locale': 'es_AR',
+    'meta.imageAlt': 'Alejandro Oliva, Full Stack Developer',
 
     'nav.experience': 'Experiencia',
     'nav.skills': 'Habilidades',
@@ -50,9 +52,11 @@ export const ui = {
     'footer.contact': 'Contacto',
   },
   en: {
-    'meta.title': 'Alejandro Oliva',
+    'meta.title': 'Alejandro Oliva | Full Stack Developer',
     'meta.description':
       'My name is Alejandro Oliva, I am a full stack developer with more than 5 years of experience.',
+    'meta.locale': 'en_US',
+    'meta.imageAlt': 'Alejandro Oliva, Full Stack Developer',
 
     'nav.experience': 'Experience',
     'nav.skills': 'Skills',

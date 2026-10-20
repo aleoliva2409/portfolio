@@ -25,6 +25,8 @@ const t = useTranslations(getLang(Astro.currentLocale));
         src={image}
         alt={`${t('project.screenshot')} ${title}`}
         class='h-48 w-full object-cover'
+        loading='lazy'
+        decoding='async'
       />
     )
   }

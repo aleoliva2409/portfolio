@@ -10,25 +10,84 @@ import { getLang, useTranslations } from '@/i18n/utils';
 const lang = getLang(Astro.currentLocale);
 const t = useTranslations(lang);
 
+const siteUrl = Astro.site ?? Astro.url;
 const alternateUrl = (locale: Lang) =>
-  new URL(getRelativeLocaleUrl(locale), Astro.site ?? Astro.url).href;
+  new URL(getRelativeLocaleUrl(locale), siteUrl).href;
+
+const canonicalUrl = alternateUrl(lang);
+const ogImage = new URL('/og.png', siteUrl).href;
+const otherLocales = (Object.keys(languages) as Lang[]).filter(
+  (locale) => locale !== lang,
+);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Alejandro Oliva',
+  url: canonicalUrl,
+  image: new URL('/me.webp', siteUrl).href,
+  jobTitle: 'Full Stack Developer',
+  email: 'mailto:alejandro.oliva2409@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Buenos Aires',
+    addressCountry: 'AR',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/aleoliva-dev/',
+    'https://github.com/aleoliva2409',
+  ],
+};
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset='UTF-8' />
-    <meta name='description' content={t('meta.description')} />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
     <title>{t('meta.title')}</title>
+    <meta name='description' content={t('meta.description')} />
+    <meta name='author' content='Alejandro Oliva' />
+    <meta name='generator' content={Astro.generator} />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='icon' href='/favicon.ico' sizes='32x32' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+
+    <link rel='canonical' href={canonicalUrl} />
     {
       (Object.keys(languages) as Lang[]).map((locale) => (
         <link rel='alternate' hreflang={locale} href={alternateUrl(locale)} />
       ))
     }
     <link rel='alternate' hreflang='x-default' href={alternateUrl(defaultLang)} />
+
+    <meta property='og:type' content='website' />
+    <meta property='og:site_name' content='Alejandro Oliva' />
+    <meta property='og:url' content={canonicalUrl} />
+    <meta property='og:title' content={t('meta.title')} />
+    <meta property='og:description' content={t('meta.description')} />
+    <meta property='og:image' content={ogImage} />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:image:alt' content={t('meta.imageAlt')} />
+    <meta property='og:locale' content={t('meta.locale')} />
+    {
+      otherLocales.map((locale) => (
+        <meta
+          property='og:locale:alternate'
+          content={useTranslations(locale)('meta.locale')}
+        />
+      ))
+    }
+
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={t('meta.title')} />
+    <meta name='twitter:description' content={t('meta.description')} />
+    <meta name='twitter:image' content={ogImage} />
+    <meta name='twitter:image:alt' content={t('meta.imageAlt')} />
+
+    <script type='application/ld+json' set:html={JSON.stringify(jsonLd)} />
 
     <script is:inline>
       const theme = localStorage.getItem('theme');

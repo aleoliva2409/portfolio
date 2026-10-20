@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aleoliva2409-dev.com.ar/sitemap-index.xml
