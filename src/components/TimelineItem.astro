@@ -27,8 +27,10 @@ const { position, company, period, description } = Astro.props;
       </time>
     </div>
 
-    <p class='leading-7 text-ink/70 dark:text-ink-dark/70'>
-      {description}
-    </p>
+    <ul
+      class='list-disc space-y-2 pl-5 leading-7 text-ink/70 marker:text-brand dark:text-ink-dark/70 dark:marker:text-brand-dark'
+    >
+      {description.map((item) => <li>{item}</li>)}
+    </ul>
   </div>
 </li>

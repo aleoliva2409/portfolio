@@ -5,30 +5,44 @@ export interface Experience {
   position: string;
   company: string;
   period: string;
-  description: string;
+  description: string[];
 }
 
 const EXPERIENCES: Experience[] = [
   {
     position: 'Full Stack Developer',
-    company: 'Banco galicia',
-    period: 'Actualmente...',
-    description:
-      'Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.',
-  },
-  {
-    position: 'Full Stack Developer',
     company: 'Grupo LPA',
-    period: 'Actualmente...',
-    description:
-      'Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.',
+    period: 'Marzo 2026 - Octubre 2026',
+    description: [
+      'Mantenimiento y nuevas funcionalidades en PHP para el portal de proveedores OSPIM.',
+      'Desarrollo de aplicaciones con SAP Fiori para integrar en entornos SAP.',
+    ],
   },
   {
     position: 'Full Stack Developer',
-    company: 'Aicore IT Solutions',
-    period: 'Agosto 2021 - Marzo 2022',
-    description:
-      'Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.',
+    company: 'Banco Santander (vía RHT)',
+    period: 'Febrero 2025 - Marzo 2026',
+    description: [
+      'Desarrollo de una plataforma de soporte para atención telefónica que permite operar compra y venta de acciones, bonos y CEDEARs (React, Nest JS).',
+    ],
+  },
+  {
+    position: 'Full Stack Developer',
+    company: 'Banco Galicia (vía Grupo LPA)',
+    period: 'Marzo 2022 - Febrero 2025',
+    description: [
+      'Referente técnico de front-end en seis proyectos de comercio exterior desarrollados desde cero, del MVP a su segunda fase: cartas de crédito, financiaciones y cobranzas de importación y exportación.',
+      'Desarrollo y mantenimiento de nuevos productos en Office Banking, Plataforma Galicia Comex (PGC) y BFF para el consumo de clientes externos.',
+    ],
+  },
+  {
+    position: 'Full Stack Developer',
+    company: 'Ai Core IT',
+    period: 'Septiembre 2021 - Marzo 2022',
+    description: [
+      'Desarrollo y mantenimiento de Bukest, marketplace de servicios.',
+      'Desarrollo y mantenimiento de aplicaciones web para terceros como AON.',
+    ],
   },
 ];
 ---

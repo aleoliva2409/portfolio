@@ -1,0 +1,115 @@
+---
+import {
+  siAstro,
+  siDocker,
+  siDotnet,
+  siExpress,
+  siGit,
+  siGithub,
+  siGitlab,
+  siJira,
+  siKibana,
+  siNestjs,
+  siNextdotjs,
+  siPhp,
+  siPostgresql,
+  siPrisma,
+  siReact,
+  siRedhatopenshift,
+  siRedux,
+  siSap,
+  siTailwindcss,
+  siTestinglibrary,
+  siTrello,
+  siTypeorm,
+  siTypescript,
+  siVite,
+  siVitest,
+  type SimpleIcon,
+} from 'simple-icons';
+
+interface Skill {
+  name: string;
+  icon?: SimpleIcon;
+}
+
+interface SkillGroup {
+  title: string;
+  skills: Skill[];
+}
+
+const SKILL_GROUPS: SkillGroup[] = [
+  {
+    title: 'Front-end',
+    skills: [
+      { name: 'TypeScript', icon: siTypescript },
+      { name: 'React', icon: siReact },
+      { name: 'Next.js', icon: siNextdotjs },
+      { name: 'Astro', icon: siAstro },
+      { name: 'Vite', icon: siVite },
+      { name: 'Tailwind CSS', icon: siTailwindcss },
+      { name: 'Context API' },
+      { name: 'Redux', icon: siRedux },
+      { name: 'Zustand' },
+      { name: 'SAP Fiori', icon: siSap },
+      { name: 'Vitest', icon: siVitest },
+      { name: 'React Testing Library', icon: siTestinglibrary },
+    ],
+  },
+  {
+    title: 'Back-end',
+    skills: [
+      { name: 'Nest JS', icon: siNestjs },
+      { name: 'Express', icon: siExpress },
+      { name: 'C#' },
+      { name: '.NET', icon: siDotnet },
+      { name: 'PHP', icon: siPhp },
+      { name: 'TypeORM', icon: siTypeorm },
+      { name: 'Prisma', icon: siPrisma },
+      { name: 'PostgreSQL', icon: siPostgresql },
+      { name: 'SQL Server' },
+    ],
+  },
+  {
+    title: 'Herramientas e infraestructura',
+    skills: [
+      { name: 'Git', icon: siGit },
+      { name: 'GitHub', icon: siGithub },
+      { name: 'GitLab', icon: siGitlab },
+      { name: 'Jira', icon: siJira },
+      { name: 'Trello', icon: siTrello },
+      { name: 'Docker', icon: siDocker },
+      { name: 'OpenShift', icon: siRedhatopenshift },
+      { name: 'Kibana', icon: siKibana },
+    ],
+  },
+];
+---
+
+<div class='flex flex-col gap-8'>
+  {
+    SKILL_GROUPS.map((group) => (
+      <div>
+        <h3 class='mb-3 text-lg font-semibold'>{group.title}</h3>
+
+        <ul class='flex flex-wrap gap-2'>
+          {group.skills.map((skill) => (
+            <li class='inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1 text-sm transition-colors hover:border-brand hover:text-brand dark:border-line-dark dark:bg-surface-dark/80 dark:hover:border-brand-dark dark:hover:text-brand-dark'>
+              {skill.icon && (
+                <svg
+                  class='size-4 shrink-0'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  aria-hidden='true'
+                >
+                  <path d={skill.icon.path} />
+                </svg>
+              )}
+              {skill.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
