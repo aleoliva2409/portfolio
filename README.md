@@ -44,3 +44,7 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## 📄 Licencia
+
+Este proyecto está basado en [porfolio.dev](https://github.com/midudev/porfolio.dev) de [midudev](https://github.com/midudev), con modificaciones, y se distribuye bajo la licencia [Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.es).
