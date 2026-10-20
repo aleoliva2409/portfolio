@@ -6,6 +6,6 @@ import { getLang } from '@/i18n/utils';
 const lang = getLang(Astro.currentLocale);
 ---
 
-<ol class='relative border-s-2 border-gray-300'>
+<ol class='relative border-s-2 border-line dark:border-line-dark'>
   {EXPERIENCES[lang].map((experience) => <TimelineItem {...experience} />)}
 </ol>

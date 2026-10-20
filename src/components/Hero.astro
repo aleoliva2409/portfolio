@@ -20,17 +20,17 @@ const t = useTranslations(getLang(Astro.currentLocale));
       href='https://www.linkedin.com/in/aleoliva-dev/'
       target='_blank'
       rel='noopener noreferrer'
-      class='rounded-full border border-brand/40 bg-brand/10 px-2.5 py-1 text-brand'
+      class='rounded-full border border-brand/40 bg-brand/10 px-2.5 py-1 text-brand dark:border-brand-dark/40 dark:bg-brand-dark/10 dark:text-brand-dark'
     >
       {t('hero.available')}
     </a>
   </div>
   <h1 class='py-5 text-4xl font-bold sm:text-5xl'>
-    {t('hero.greeting')} <span class='text-brand'>Alejandro</span>
+    {t('hero.greeting')} <span class='text-brand dark:text-brand-dark'>Alejandro</span>
   </h1>
   <p class='max-w-2xl text-lg leading-8'>
     {t('hero.intro')}{' '}
-    <span class='font-bold text-accent'>
+    <span class='font-bold text-accent dark:text-accent-dark'>
       {t('hero.highlight')}{' '}
     </span>
     {t('hero.outro')}

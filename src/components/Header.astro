@@ -4,8 +4,8 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getLang, useTranslations } from '@/i18n/utils';
 
 interface Item {
+  id: string;
   title: string;
-  url: string;
 }
 
 const lang = getLang(Astro.currentLocale);
@@ -15,20 +15,20 @@ const otherLang = lang === 'es' ? 'en' : 'es';
 
 const navItems: Item[] = [
   {
+    id: 'experience',
     title: t('nav.experience'),
-    url: `${homeUrl}#experience`,
   },
   {
+    id: 'skills',
     title: t('nav.skills'),
-    url: `${homeUrl}#skills`,
   },
   {
+    id: 'projects',
     title: t('nav.projects'),
-    url: `${homeUrl}#projects`,
   },
   {
+    id: 'about-me',
     title: t('nav.about'),
-    url: `${homeUrl}#about-me`,
   },
 ];
 ---
@@ -42,8 +42,9 @@ const navItems: Item[] = [
     {
       navItems.map((item) => (
         <a
-          class='block whitespace-nowrap rounded-full px-1.5 py-1.5 text-gray-600 transition-colors hover:bg-gray-200/50 hover:text-accent dark:text-ink-dark hover:dark:bg-white/10 hover:dark:text-accent-dark sm:px-3'
-          href={item.url}
+          class='block whitespace-nowrap rounded-full px-1.5 py-1.5 text-gray-600 transition-colors hover:bg-gray-200/50 hover:text-accent dark:text-ink-dark hover:dark:bg-white/10 hover:dark:text-accent-dark aria-[current=true]:bg-brand/10 aria-[current=true]:font-medium aria-[current=true]:text-brand dark:aria-[current=true]:bg-brand-dark/10 dark:aria-[current=true]:text-brand-dark sm:px-3'
+          href={`${homeUrl}#${item.id}`}
+          data-nav-section={item.id}
         >
           {item.title}
         </a>
@@ -66,3 +67,40 @@ const navItems: Item[] = [
     </div>
   </nav>
 </header>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-nav-section]');
+
+  const setActive = (id: string | null) => {
+    links.forEach((link) => {
+      if (link.dataset.navSection === id) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  const sections = [
+    ...document.querySelectorAll<HTMLElement>('[data-section]'),
+  ];
+
+  const updateActive = () => {
+    const isAtBottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2;
+
+    const current = isAtBottom
+      ? sections.at(-1)
+      : sections.findLast(
+          (section) =>
+            section.getBoundingClientRect().top <= window.innerHeight * 0.4,
+        );
+
+    setActive(current?.id ?? null);
+  };
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+
+  updateActive();
+</script>

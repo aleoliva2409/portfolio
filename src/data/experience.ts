@@ -57,7 +57,7 @@ export const EXPERIENCES: Record<Lang, Experience[]> = {
     },
     {
       position: 'Full Stack Developer',
-      company: 'Banco Santander (via RHT)',
+      company: 'Santander Bank (via RHT)',
       period: 'February 2025 - March 2026',
       description: [
         'Built a support platform for phone-based customer service to trade stocks, bonds and CEDEARs (React, Nest JS).',
@@ -65,7 +65,7 @@ export const EXPERIENCES: Record<Lang, Experience[]> = {
     },
     {
       position: 'Full Stack Developer',
-      company: 'Banco Galicia (via Grupo LPA)',
+      company: 'Galicia Bank (via Grupo LPA)',
       period: 'March 2022 - February 2025',
       description: [
         'Front-end technical lead on six foreign trade projects built from scratch, from MVP to their second phase: letters of credit, financing and import/export collections.',

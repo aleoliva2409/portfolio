@@ -8,7 +8,7 @@ const { position, company, period, description } = Astro.props;
 
 <li class='mb-12 ml-5 md:ml-8'>
   <div
-    class='absolute -inset-s-2 mt-1.5 size-3.5 rounded-full border border-surface bg-brand'
+    class='absolute -inset-s-2 mt-1.5 size-3.5 rounded-full border border-surface bg-brand dark:border-surface-dark dark:bg-brand-dark'
   >
   </div>
 
@@ -18,7 +18,7 @@ const { position, company, period, description } = Astro.props;
         {position}
       </h3>
 
-      <h4 class='mt-1 text-lg font-medium text-brand'>
+      <h4 class='mt-1 text-lg font-medium text-brand dark:text-brand-dark'>
         {company}
       </h4>
 

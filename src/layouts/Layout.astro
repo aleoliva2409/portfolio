@@ -1,4 +1,5 @@
 ---
+import '@fontsource-variable/onest';
 import '@/styles/global.css';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
@@ -31,6 +32,7 @@ const alternateUrl = (locale: Lang) =>
 
     <script is:inline>
       const theme = localStorage.getItem('theme');
+      document.documentElement.dataset.themePref = theme ?? 'system';
       const prefersDark = window.matchMedia(
         '(prefers-color-scheme: dark)',
       ).matches;

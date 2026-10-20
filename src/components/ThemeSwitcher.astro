@@ -1,4 +1,6 @@
 ---
+import SunIcon from '@/assets/icons/Sun.astro';
+import MoonIcon from '@/assets/icons/Moon.astro';
 import SystemIcon from '@/assets/icons/SystemIcon.astro';
 import { getLang, useTranslations } from '@/i18n/utils';
 
@@ -14,45 +16,73 @@ const themes = [
 <div class='relative'>
   <button
     id='dropdown-button'
-    class='cursor-pointer rounded-md p-1.5 text-ink transition hover:scale-110 dark:text-ink-dark'
+    class='flex cursor-pointer rounded-md p-1.5 text-ink transition hover:scale-110 dark:text-ink-dark'
     type='button'
     aria-label={t('theme.toggle')}
+    aria-haspopup='true'
+    aria-expanded='false'
+    aria-controls='dropdown-menu'
   >
-    <SystemIcon />
+    <SunIcon class='theme-icon size-5' data-theme-icon='light' />
+    <MoonIcon class='theme-icon size-5' data-theme-icon='dark' />
+    <SystemIcon class='theme-icon size-5' data-theme-icon='system' />
   </button>
 
   <ul
     id='dropdown-menu'
-    class='absolute right-0 z-10 hidden w-32 rounded-md border border-line bg-surface p-1 text-sm shadow-lg dark:border-line-dark dark:bg-surface-dark'
+    class='absolute right-0 z-10 mt-2 hidden w-32 rounded-md border border-line bg-surface p-1 text-sm shadow-lg dark:border-line-dark dark:bg-surface-dark'
   >
     {
       themes.map((theme) => (
-        <li
-          data-theme={theme.value}
-          class='cursor-pointer rounded-md px-3 py-2 text-ink hover:bg-brand/10 hover:text-brand dark:text-ink-dark dark:hover:bg-brand-dark/10 dark:hover:text-brand-dark'
-        >
-          {theme.label}
+        <li>
+          <button
+            type='button'
+            data-theme={theme.value}
+            class='w-full cursor-pointer rounded-md px-3 py-2 text-left text-ink hover:bg-brand/10 hover:text-brand dark:text-ink-dark dark:hover:bg-brand-dark/10 dark:hover:text-brand-dark'
+          >
+            {theme.label}
+          </button>
         </li>
       ))
     }
   </ul>
 </div>
 
+<style>
+  .theme-icon {
+    display: none;
+  }
+
+  :global(html[data-theme-pref='light']) [data-theme-icon='light'],
+  :global(html[data-theme-pref='dark']) [data-theme-icon='dark'],
+  :global(html[data-theme-pref='system']) [data-theme-icon='system'] {
+    display: block;
+  }
+</style>
+
 <script>
   const button = document.getElementById('dropdown-button');
   const menu = document.getElementById('dropdown-menu');
-  const options = document.querySelectorAll<HTMLElement>('[data-theme]');
+  const options = menu?.querySelectorAll<HTMLElement>('[data-theme]') ?? [];
   const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const getTheme = () => localStorage.getItem('theme') ?? 'system';
 
   const applyTheme = (theme: string) => {
     const isDark = theme === 'dark' || (theme === 'system' && media.matches);
 
     document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.dataset.themePref = theme;
+  };
+
+  const setMenuOpen = (open: boolean) => {
+    menu?.classList.toggle('hidden', !open);
+    button?.setAttribute('aria-expanded', String(open));
   };
 
   button?.addEventListener('click', (event) => {
     event.stopPropagation();
-    menu?.classList.toggle('hidden');
+    setMenuOpen(menu?.classList.contains('hidden') ?? false);
   });
 
   options.forEach((option) => {
@@ -61,7 +91,17 @@ const themes = [
 
       localStorage.setItem('theme', theme);
       applyTheme(theme);
-      menu?.classList.add('hidden');
+      setMenuOpen(false);
     });
+  });
+
+  document.addEventListener('click', () => setMenuOpen(false));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
+  });
+
+  media.addEventListener('change', () => {
+    if (getTheme() === 'system') applyTheme('system');
   });
 </script>
