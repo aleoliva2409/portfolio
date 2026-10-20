@@ -1,52 +1,11 @@
 ---
 import TimelineItem from './TimelineItem.astro';
+import { EXPERIENCES } from '@/data/experience';
+import { getLang } from '@/i18n/utils';
 
-export interface Experience {
-  position: string;
-  company: string;
-  period: string;
-  description: string[];
-}
-
-const EXPERIENCES: Experience[] = [
-  {
-    position: 'Full Stack Developer',
-    company: 'Grupo LPA',
-    period: 'Marzo 2026 - Octubre 2026',
-    description: [
-      'Mantenimiento y nuevas funcionalidades en PHP para el portal de proveedores OSPIM.',
-      'Desarrollo de aplicaciones con SAP Fiori para integrar en entornos SAP.',
-    ],
-  },
-  {
-    position: 'Full Stack Developer',
-    company: 'Banco Santander (vía RHT)',
-    period: 'Febrero 2025 - Marzo 2026',
-    description: [
-      'Desarrollo de una plataforma de soporte para atención telefónica que permite operar compra y venta de acciones, bonos y CEDEARs (React, Nest JS).',
-    ],
-  },
-  {
-    position: 'Full Stack Developer',
-    company: 'Banco Galicia (vía Grupo LPA)',
-    period: 'Marzo 2022 - Febrero 2025',
-    description: [
-      'Referente técnico de front-end en seis proyectos de comercio exterior desarrollados desde cero, del MVP a su segunda fase: cartas de crédito, financiaciones y cobranzas de importación y exportación.',
-      'Desarrollo y mantenimiento de nuevos productos en Office Banking, Plataforma Galicia Comex (PGC) y BFF para el consumo de clientes externos.',
-    ],
-  },
-  {
-    position: 'Full Stack Developer',
-    company: 'Ai Core IT',
-    period: 'Septiembre 2021 - Marzo 2022',
-    description: [
-      'Desarrollo y mantenimiento de Bukest, marketplace de servicios.',
-      'Desarrollo y mantenimiento de aplicaciones web para terceros como AON.',
-    ],
-  },
-];
+const lang = getLang(Astro.currentLocale);
 ---
 
 <ol class='relative border-s-2 border-gray-300'>
-  {EXPERIENCES.map((experience) => <TimelineItem {...experience} />)}
+  {EXPERIENCES[lang].map((experience) => <TimelineItem {...experience} />)}
 </ol>

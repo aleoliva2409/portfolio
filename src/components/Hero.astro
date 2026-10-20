@@ -4,6 +4,9 @@ import MediaLink from './MediaLink.astro';
 import GithubIcon from '@/assets/icons/Github.astro';
 import LinkedInIcon from '@/assets/icons/LinkedIn.astro';
 import SectionContainer from './SectionContainer.astro';
+import { getLang, useTranslations } from '@/i18n/utils';
+
+const t = useTranslations(getLang(Astro.currentLocale));
 ---
 
 <SectionContainer id='Hero' classes='my-16 sm:my-24'>
@@ -19,23 +22,23 @@ import SectionContainer from './SectionContainer.astro';
       rel='noopener noreferrer'
       class='rounded-full border border-brand/40 bg-brand/10 px-2.5 py-1 text-brand'
     >
-      Disponible para trabajar
+      {t('hero.available')}
     </a>
   </div>
   <h1 class='py-5 text-4xl font-bold sm:text-5xl'>
-    Hola, soy <span class='text-brand'>Alejandro</span>
+    {t('hero.greeting')} <span class='text-brand'>Alejandro</span>
   </h1>
   <p class='max-w-2xl text-lg leading-8'>
-    +5 años de experiencia. Desarrollador Full Stack{' '}
+    {t('hero.intro')}{' '}
     <span class='font-bold text-accent'>
-      con experiencia en banca, seguros y ecommerce.{' '}
+      {t('hero.highlight')}{' '}
     </span>
-    Me gusta crear aplicaciones web útiles, rápidas y fáciles de mantener.
+    {t('hero.outro')}
   </p>
   <nav class='my-6 flex flex-wrap gap-2'>
     <MediaLink href='mailto:alejandro.oliva2409@gmail.com'>
       <MailIcon class='mr-1 size-4' />
-      Contáctame
+      {t('hero.contact')}
     </MediaLink>
     <MediaLink href='https://www.linkedin.com/in/aleoliva-dev/'>
       <LinkedInIcon class='mr-1 size-4' />

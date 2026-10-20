@@ -1,10 +1,13 @@
 ---
 import SystemIcon from '@/assets/icons/SystemIcon.astro';
+import { getLang, useTranslations } from '@/i18n/utils';
+
+const t = useTranslations(getLang(Astro.currentLocale));
 
 const themes = [
-  { label: 'Claro', value: 'light' },
-  { label: 'Oscuro', value: 'dark' },
-  { label: 'Sistema', value: 'system' },
+  { label: t('theme.light'), value: 'light' },
+  { label: t('theme.dark'), value: 'dark' },
+  { label: t('theme.system'), value: 'system' },
 ];
 ---
 
@@ -13,7 +16,7 @@ const themes = [
     id='dropdown-button'
     class='cursor-pointer rounded-md p-1.5 text-ink transition hover:scale-110 dark:text-ink-dark'
     type='button'
-    aria-label='Cambiar tema'
+    aria-label={t('theme.toggle')}
   >
     <SystemIcon />
   </button>

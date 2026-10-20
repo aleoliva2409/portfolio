@@ -1,25 +1,33 @@
 ---
 import '@/styles/global.css';
 import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { defaultLang, languages, type Lang } from '@/i18n/ui';
+import { getLang, useTranslations } from '@/i18n/utils';
 
-interface Props {
-  lang: 'es' | 'en';
-  description: string;
-  title: string;
-}
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
 
-const { lang, description, title } = Astro.props;
+const alternateUrl = (locale: Lang) =>
+  new URL(getRelativeLocaleUrl(locale), Astro.site ?? Astro.url).href;
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset='UTF-8' />
-    <meta name='description' content={description} />
+    <meta name='description' content={t('meta.description')} />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
+    <title>{t('meta.title')}</title>
+    {
+      (Object.keys(languages) as Lang[]).map((locale) => (
+        <link rel='alternate' hreflang={locale} href={alternateUrl(locale)} />
+      ))
+    }
+    <link rel='alternate' hreflang='x-default' href={alternateUrl(defaultLang)} />
 
     <script is:inline>
       const theme = localStorage.getItem('theme');
@@ -42,6 +50,7 @@ const { lang, description, title } = Astro.props;
   dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(94,234,212,0.10),rgba(16,24,32,0.98))]'
     >
     </div>
+    <Header />
     <main class='w-wrapper mx-auto px-4 pt-20 sm:px-6'>
       <slot />
     </main>

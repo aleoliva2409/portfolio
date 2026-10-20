@@ -1,0 +1,80 @@
+---
+import ProjectCard from '@/components/ProjectCard.astro';
+
+import Briefcase from '@/assets/icons/Briefcase.astro';
+import Code from '@/assets/icons/Code.astro';
+import CodeDots from '@/assets/icons/CodeDots.astro';
+import AboutMe from '@/assets/icons/AboutMe.astro';
+
+import Hero from '@/components/Hero.astro';
+import Timeline from '@/components/Timeline.astro';
+import Skills from '@/components/Skills.astro';
+import AboutMeText from '@/components/AboutMeText.astro';
+import SectionContainer from '@/components/SectionContainer.astro';
+import { getLang, useTranslations } from '@/i18n/utils';
+
+const t = useTranslations(getLang(Astro.currentLocale));
+---
+
+<Hero />
+
+<SectionContainer id='experience' classes='my-16 scroll-mt-24'>
+  <h2 class='flex items-center text-3xl font-medium pb-5'>
+    <span class='mr-2'><Briefcase class='size-8' /></span>
+    {t('section.experience')}
+  </h2>
+
+  <Timeline />
+</SectionContainer>
+
+<SectionContainer id='skills' classes='my-16 scroll-mt-24'>
+  <h2 class='flex items-center pb-5 text-3xl font-medium'>
+    <span class='mr-2'><Code class='size-7' /></span>
+    {t('section.skills')}
+  </h2>
+
+  <Skills />
+</SectionContainer>
+
+<SectionContainer id='projects' classes='my-16 scroll-mt-24'>
+  <h2 class='flex items-center pb-5 text-3xl font-medium'>
+    <span class='mr-2'><CodeDots class='size-8' /></span>
+    {t('section.projects')}
+  </h2>
+
+  <div class='grid gap-6 md:grid-cols-2'>
+    <ProjectCard
+      title='Mi proyecto'
+      description='Aplicación web creada para resolver un problema real.'
+      technologies='Astro · TypeScript · Tailwind CSS'
+      image='/code.webp'
+      codeUrl='https://github.com/tu-usuario/mi-proyecto'
+      demoUrl='https://mi-proyecto.com'
+    />
+    <ProjectCard
+      title='Mi proyecto'
+      description='Aplicación web creada para resolver un problema real.'
+      technologies='Astro · TypeScript · Tailwind CSS'
+      image='/code.webp'
+      codeUrl='https://github.com/tu-usuario/mi-proyecto'
+      demoUrl='https://mi-proyecto.com'
+    />
+    <ProjectCard
+      title='Mi proyecto'
+      description='Aplicación web creada para resolver un problema real.'
+      technologies='Astro · TypeScript · Tailwind CSS'
+      image='/code.webp'
+      codeUrl='https://github.com/tu-usuario/mi-proyecto'
+      demoUrl='https://mi-proyecto.com'
+    />
+  </div>
+</SectionContainer>
+
+<SectionContainer id='about-me' classes='my-16 scroll-mt-24'>
+  <h2 class='flex items-center pb-5 text-3xl font-medium'>
+    <span class='mr-2'><AboutMe class='size-8' /></span>
+    {t('section.about')}
+  </h2>
+
+  <AboutMeText />
+</SectionContainer>

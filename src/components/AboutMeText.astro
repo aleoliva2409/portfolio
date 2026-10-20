@@ -1,0 +1,70 @@
+---
+import { getLang } from '@/i18n/utils';
+
+const lang = getLang(Astro.currentLocale);
+---
+
+<div
+  class='max-w-2xl space-y-4 text-lg leading-8 [&_strong]:font-semibold [&_strong]:text-brand dark:[&_strong]:text-brand-dark'
+>
+  {
+    lang === 'en' ? (
+      <>
+        <p>
+          My name is Alejandro and I am a Full Stack Developer from Buenos
+          Aires, with{' '}
+          <strong>
+            more than 5 years of experience in ecommerce, insurance and banking
+          </strong>
+          . I work with React, Next.js and TypeScript on the front-end, and with
+          Nest JS, .NET and PHP on the back-end.
+        </p>
+
+        <p>
+          At Banco Galicia I was the{' '}
+          <strong>
+            front-end technical lead on six foreign trade projects
+          </strong>{' '}
+          built from scratch, from MVP to their second phase: letters of
+          credit, financing and import/export collections.
+        </p>
+
+        <p>
+          At Banco Santander I built a{' '}
+          <strong>support platform for phone-based customer service</strong>{' '}
+          to trade stocks, bonds and CEDEARs. I am also currently studying a
+          Programming degree at UTN.
+        </p>
+      </>
+    ) : (
+      <>
+        <p>
+          Me llamo Alejandro y soy desarrollador Full Stack de Buenos Aires,
+          con{' '}
+          <strong>
+            más de 5 años de experiencia en ecommerce, seguros y banca
+          </strong>
+          . Trabajo con React, Next.js y TypeScript en el front-end, y con Nest
+          JS, .NET y PHP en el back-end.
+        </p>
+
+        <p>
+          En Banco Galicia fui{' '}
+          <strong>
+            referente técnico de front-end en seis proyectos de comercio
+            exterior
+          </strong>{' '}
+          construidos desde cero, del MVP a su segunda fase: cartas de crédito,
+          financiaciones y cobranzas de importación y exportación.
+        </p>
+
+        <p>
+          En Banco Santander desarrollé una{' '}
+          <strong>plataforma de soporte para atención telefónica</strong> que
+          permite operar compra y venta de acciones, bonos y CEDEARs. Hoy
+          además estudio la Tecnicatura en Programación en la UTN.
+        </p>
+      </>
+    )
+  }
+</div>
