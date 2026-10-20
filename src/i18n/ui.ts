@@ -43,6 +43,12 @@ export const ui = {
     'skills.backend': 'Back-end',
     'skills.tools': 'Herramientas e infraestructura',
 
+    'projects.badge': 'En construcción',
+    'projects.title': 'Próximamente',
+    'projects.description':
+      'Estoy preparando esta sección con proyectos propios. Mientras tanto, puedes ver mi código en GitHub.',
+    'projects.github': 'Ver mi GitHub',
+
     'project.screenshot': 'Captura de',
     'project.code': 'Código',
     'project.demo': 'Demo',
@@ -50,6 +56,10 @@ export const ui = {
     'footer.basedOn': 'Diseño basado en',
     'footer.by': 'de midudev, con modificaciones',
     'footer.contact': 'Contacto',
+
+    'notFound.title': 'Página no encontrada',
+    'notFound.description': 'La página que buscas no existe o fue movida.',
+    'notFound.back': 'Volver al inicio',
   },
   en: {
     'meta.title': 'Alejandro Oliva | Full Stack Developer',
@@ -85,6 +95,12 @@ export const ui = {
     'skills.backend': 'Back-end',
     'skills.tools': 'Tools & infrastructure',
 
+    'projects.badge': 'In progress',
+    'projects.title': 'Coming soon',
+    'projects.description':
+      "I'm putting together this section with my own projects. In the meantime, you can check out my code on GitHub.",
+    'projects.github': 'See my GitHub',
+
     'project.screenshot': 'Screenshot of',
     'project.code': 'Code',
     'project.demo': 'Demo',
@@ -92,5 +108,9 @@ export const ui = {
     'footer.basedOn': 'Design based on',
     'footer.by': 'by midudev, with modifications',
     'footer.contact': 'Contact',
+
+    'notFound.title': 'Page not found',
+    'notFound.description': "The page you're looking for doesn't exist or has been moved.",
+    'notFound.back': 'Back to home',
   },
 } as const;

@@ -1,0 +1,41 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations } from '@/i18n/utils';
+
+const es = useTranslations('es');
+const en = useTranslations('en');
+---
+
+<Layout>
+  <section class='flex min-h-[60vh] flex-col items-center justify-center text-center'>
+    <p class='text-7xl font-bold text-brand sm:text-8xl dark:text-brand-dark'>
+      404
+    </p>
+
+    <h1 class='mt-4 text-3xl font-semibold'>{es('notFound.title')}</h1>
+    <p class='mt-2 text-lg text-ink/70 dark:text-ink-dark/70'>
+      {es('notFound.description')}
+    </p>
+
+    <p class='mt-6 text-ink/60 dark:text-ink-dark/60' lang='en'>
+      {en('notFound.title')}. {en('notFound.description')}
+    </p>
+
+    <div class='mt-8 flex flex-wrap justify-center gap-3'>
+      <a
+        href={getRelativeLocaleUrl('es')}
+        class='rounded-full border border-line bg-surface/80 px-4 py-1.5 transition-colors hover:border-accent hover:text-accent dark:border-line-dark dark:bg-surface-dark/80 dark:hover:border-accent-dark dark:hover:text-accent-dark'
+      >
+        {es('notFound.back')}
+      </a>
+      <a
+        href={getRelativeLocaleUrl('en')}
+        lang='en'
+        class='rounded-full border border-line bg-surface/80 px-4 py-1.5 transition-colors hover:border-accent hover:text-accent dark:border-line-dark dark:bg-surface-dark/80 dark:hover:border-accent-dark dark:hover:text-accent-dark'
+      >
+        {en('notFound.back')}
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,6 +1,4 @@
 ---
-import ProjectCard from '@/components/ProjectCard.astro';
-
 import Briefcase from '@/assets/icons/Briefcase.astro';
 import Code from '@/assets/icons/Code.astro';
 import CodeDots from '@/assets/icons/CodeDots.astro';
@@ -10,6 +8,7 @@ import Hero from '@/components/Hero.astro';
 import Timeline from '@/components/Timeline.astro';
 import Skills from '@/components/Skills.astro';
 import AboutMeText from '@/components/AboutMeText.astro';
+import ProjectsComingSoon from '@/components/ProjectsComingSoon.astro';
 import SectionContainer from '@/components/SectionContainer.astro';
 import { getLang, useTranslations } from '@/i18n/utils';
 
@@ -42,32 +41,7 @@ const t = useTranslations(getLang(Astro.currentLocale));
     {t('section.projects')}
   </h2>
 
-  <div class='grid gap-6 md:grid-cols-2'>
-    <ProjectCard
-      title='Mi proyecto'
-      description='Aplicación web creada para resolver un problema real.'
-      technologies='Astro · TypeScript · Tailwind CSS'
-      image='/code.webp'
-      codeUrl='https://github.com/tu-usuario/mi-proyecto'
-      demoUrl='https://mi-proyecto.com'
-    />
-    <ProjectCard
-      title='Mi proyecto'
-      description='Aplicación web creada para resolver un problema real.'
-      technologies='Astro · TypeScript · Tailwind CSS'
-      image='/code.webp'
-      codeUrl='https://github.com/tu-usuario/mi-proyecto'
-      demoUrl='https://mi-proyecto.com'
-    />
-    <ProjectCard
-      title='Mi proyecto'
-      description='Aplicación web creada para resolver un problema real.'
-      technologies='Astro · TypeScript · Tailwind CSS'
-      image='/code.webp'
-      codeUrl='https://github.com/tu-usuario/mi-proyecto'
-      demoUrl='https://mi-proyecto.com'
-    />
-  </div>
+  <ProjectsComingSoon />
 </SectionContainer>
 
 <SectionContainer id='about-me' classes='my-16 scroll-mt-24'>
