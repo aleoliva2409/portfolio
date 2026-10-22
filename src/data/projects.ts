@@ -47,18 +47,19 @@ export const PROJECTS: Record<Lang, Project[]> = {
       title: 'Plataformas de inversiones',
       company: 'Banco Santander',
       period: '2025 – 2026',
-      role: 'Front-end Developer',
+      role: 'Full Stack Developer',
       description:
-        'Desarrollo de módulos nuevos para dos aplicaciones internas de inversiones, con React y Flame, el framework interno de Santander, sobre un back-end en Nest JS.',
+        'Migración y desarrollo desde cero, con un diseño completamente nuevo, de módulos de inversiones para dos aplicaciones del banco. Trabajé en el front-end y en los BFF que consumían las APIs del banco, junto a los equipos de ambas aplicaciones.',
       modules: [
         {
           name: 'PUMA',
           detail:
-            'Módulo "Acciones, bonos y CEDEARs": gestión de compra y venta de activos vía telefónica para clientes.',
+            'App para operadores que asisten a clientes por teléfono. Desarrollé el flujo transaccional completo de compra y venta de acciones, bonos y CEDEARs: tenencia, mercado y órdenes.',
         },
         {
-          name: 'Inversiones',
-          detail: 'Módulo "Licitaciones": gestión de licitaciones.',
+          name: 'Inversiones (Online Banking)',
+          detail:
+            'Módulo "Licitaciones" para clientes: suscripción a licitaciones primarias de títulos, antes de que empiecen a cotizar en el mercado.',
         },
       ],
       technologies: [REACT, FLAME, NEST],
@@ -67,12 +68,12 @@ export const PROJECTS: Record<Lang, Project[]> = {
       platform: 'Online Banking Santander',
     },
     {
-      title: 'Comercio exterior',
+      title: 'Documentarios',
       company: 'Banco Galicia',
       period: '2022 – 2025',
-      role: 'Referente técnico de front-end',
+      role: 'Referente técnico Full Stack',
       description:
-        'Seis aplicaciones del área de Comercio Exterior dentro de Office Banking, construidas desde cero. Me encargué de la arquitectura del front-end, de la creación de los módulos y los BFF, y de la integración de un gestor de operaciones para la seguridad, la autorización y la autenticación con MFA.',
+        'Proyecto de comercio exterior dentro de Office Banking que reúne seis aplicaciones. Me encargué de la arquitectura y del desarrollo desde cero, del MVP a su segunda fase, incluyendo la integración de un gestor de operaciones con autenticación MFA.',
       modules: [
         { name: 'Cartas de crédito de importación' },
         { name: 'Cartas de crédito de exportación' },
@@ -92,18 +93,19 @@ export const PROJECTS: Record<Lang, Project[]> = {
       title: 'Investment platforms',
       company: 'Santander Bank',
       period: '2025 – 2026',
-      role: 'Front-end Developer',
+      role: 'Full Stack Developer',
       description:
-        "Built new modules for two internal investment applications, using React and Flame, Santander's internal framework, on top of a Nest JS back-end.",
+        "Migrated and rebuilt from scratch, with a completely new design, investment modules for two of the bank's applications. I worked on the front-end and on the BFFs that consumed the bank's APIs, alongside both application teams.",
       modules: [
         {
           name: 'PUMA',
           detail:
-            '"Stocks, bonds and CEDEARs" module: managing purchases and sales of assets over the phone for clients.',
+            'App for operators assisting clients over the phone. I built the full buy and sell transactional flow for stocks, bonds and CEDEARs: holdings, market and orders.',
         },
         {
-          name: 'Inversiones',
-          detail: '"Tenders" module: management of securities tenders.',
+          name: 'Inversiones (Online Banking)',
+          detail:
+            '"Auctions" module for clients: subscription to primary auctions of securities, before they start trading on the market.',
         },
       ],
       technologies: [REACT, FLAME, NEST],
@@ -112,12 +114,12 @@ export const PROJECTS: Record<Lang, Project[]> = {
       platform: 'Online Banking Santander',
     },
     {
-      title: 'Foreign trade',
+      title: 'Documentarios',
       company: 'Galicia Bank',
       period: '2022 – 2025',
-      role: 'Front-end technical lead',
+      role: 'Full Stack technical lead',
       description:
-        'Six applications for the Foreign Trade area within Office Banking, built from scratch. I was responsible for the front-end architecture, building the modules and BFFs, and integrating an operations manager for security, authorization and MFA authentication.',
+        'Foreign trade project within Office Banking made up of six applications. I was responsible for the architecture and development from scratch, from MVP to its second phase, including the integration of an operations manager with MFA authentication.',
       modules: [
         { name: 'Import letters of credit' },
         { name: 'Export letters of credit' },

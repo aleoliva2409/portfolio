@@ -14,8 +14,8 @@ export const EXPERIENCES: Record<Lang, Experience[]> = {
       company: 'Grupo LPA',
       period: 'Marzo 2026 - Octubre 2026',
       description: [
-        'Mantenimiento y nuevas funcionalidades en PHP para el portal de proveedores OSPIM.',
-        'Desarrollo de aplicaciones con SAP Fiori para integrar en entornos SAP.',
+        'Nuevas funcionalidades y correcciones en el portal de proveedores OSPIM, donde los proveedores cargan sus facturas, trabajando en PHP, JavaScript y SQL Server.',
+        'Prototipos y pruebas de concepto con SAP Fiori.',
       ],
     },
     {
@@ -31,7 +31,7 @@ export const EXPERIENCES: Record<Lang, Experience[]> = {
       company: 'Banco Galicia (vía Grupo LPA)',
       period: 'Marzo 2022 - Febrero 2025',
       description: [
-        'Referente técnico de front-end en seis proyectos de comercio exterior desarrollados desde cero, del MVP a su segunda fase: cartas de crédito, financiaciones y cobranzas de importación y exportación.',
+        'Referente técnico Full Stack en seis proyectos de comercio exterior desarrollados desde cero, del MVP a su segunda fase: cartas de crédito, financiaciones y cobranzas de importación y exportación.',
         'Desarrollo y mantenimiento de nuevos productos en Office Banking, Plataforma Galicia Comex (PGC) y BFF para el consumo de clientes externos.',
       ],
     },
@@ -51,8 +51,8 @@ export const EXPERIENCES: Record<Lang, Experience[]> = {
       company: 'Grupo LPA',
       period: 'March 2026 - October 2026',
       description: [
-        'Maintenance and new features in PHP for the OSPIM supplier portal.',
-        'Development of SAP Fiori applications integrated into SAP environments.',
+        'New features and fixes for the OSPIM supplier portal, where suppliers upload their invoices, working with PHP, JavaScript and SQL Server.',
+        'Prototypes and proofs of concept with SAP Fiori.',
       ],
     },
     {
@@ -68,7 +68,7 @@ export const EXPERIENCES: Record<Lang, Experience[]> = {
       company: 'Galicia Bank (via Grupo LPA)',
       period: 'March 2022 - February 2025',
       description: [
-        'Front-end technical lead on six foreign trade projects built from scratch, from MVP to their second phase: letters of credit, financing and import/export collections.',
+        'Full Stack technical lead on six foreign trade projects built from scratch, from MVP to their second phase: letters of credit, financing and import/export collections.',
         'Development and maintenance of new products in Office Banking, Plataforma Galicia Comex (PGC) and a BFF for external clients.',
       ],
     },
