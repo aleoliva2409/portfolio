@@ -29,15 +29,6 @@ const t = useTranslations(lang);
   <Timeline />
 </SectionContainer>
 
-<SectionContainer id='skills' classes='my-16 scroll-mt-24'>
-  <h2 class='flex items-center pb-5 text-3xl font-medium'>
-    <span class='mr-2'><Code class='size-7' /></span>
-    {t('section.skills')}
-  </h2>
-
-  <Skills />
-</SectionContainer>
-
 <SectionContainer id='projects' classes='my-16 scroll-mt-24'>
   <h2 class='flex items-center pb-5 text-3xl font-medium'>
     <span class='mr-2'><CodeDots class='size-8' /></span>
@@ -53,6 +44,15 @@ const t = useTranslations(lang);
 
     <ProjectsComingSoon />
   </div>
+</SectionContainer>
+
+<SectionContainer id='skills' classes='my-16 scroll-mt-24'>
+  <h2 class='flex items-center pb-5 text-3xl font-medium'>
+    <span class='mr-2'><Code class='size-7' /></span>
+    {t('section.skills')}
+  </h2>
+
+  <Skills />
 </SectionContainer>
 
 <SectionContainer id='about-me' classes='my-16 scroll-mt-24'>
