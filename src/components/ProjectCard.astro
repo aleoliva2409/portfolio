@@ -1,67 +1,155 @@
 ---
+import ChartLineIcon from '@/assets/icons/ChartLine.astro';
+import WorldIcon from '@/assets/icons/World.astro';
+import LockIcon from '@/assets/icons/Lock.astro';
+import type { Project } from '@/data/projects';
 import { getLang, useTranslations } from '@/i18n/utils';
 
 interface Props {
-  title: string;
-  description: string;
-  technologies: string;
-  image?: string;
-  codeUrl?: string;
-  demoUrl?: string;
+  project: Project;
+  reversed?: boolean;
 }
 
-const { title, description, technologies, image, codeUrl, demoUrl } =
-  Astro.props;
+const { project, reversed = false } = Astro.props;
+const {
+  title,
+  company,
+  period,
+  role,
+  description,
+  technologies,
+  isPrivate,
+  illustration,
+  image,
+  platform,
+  codeUrl,
+  demoUrl,
+} = project;
 
 const t = useTranslations(getLang(Astro.currentLocale));
+
+const ILLUSTRATIONS = {
+  chart: {
+    icon: ChartLineIcon,
+    pattern:
+      'bg-[linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] bg-size-[22px_22px] opacity-50',
+  },
+  globe: {
+    icon: WorldIcon,
+    pattern:
+      'bg-[radial-gradient(currentColor_1.2px,transparent_1.2px)] bg-size-[16px_16px] opacity-80',
+  },
+};
+
+const { icon: IllustrationIcon, pattern } = ILLUSTRATIONS[illustration];
+
+const linkClass =
+  'inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-4 py-1 text-sm transition-colors hover:border-accent hover:text-accent dark:border-line-dark dark:bg-surface-dark/80 dark:hover:border-accent-dark dark:hover:text-accent-dark';
 ---
 
 <article
-  class='overflow-hidden rounded-2xl border border-line bg-surface/80 dark:border-line-dark dark:bg-surface-dark/80'
+  class='grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-8'
 >
-  {
-    image && (
-      <img
-        src={image}
-        alt={`${t('project.screenshot')} ${title}`}
-        class='h-48 w-full object-cover'
-        loading='lazy'
-        decoding='async'
-      />
-    )
-  }
+  <div
+    class:list={[
+      'relative aspect-16/10 overflow-hidden rounded-2xl border border-line bg-brand/5 dark:border-line-dark dark:bg-brand-dark/5',
+      reversed && 'md:order-2',
+    ]}
+  >
+    {
+      image ? (
+        <>
+          <img
+            src={image}
+            alt={`${t('project.screenshot')} ${platform ?? title}`}
+            class='size-full object-cover object-top'
+            loading='lazy'
+            decoding='async'
+          />
+          {platform && (
+            <span class='absolute bottom-3 left-3 rounded-full bg-surface-dark/75 px-2.5 py-0.5 text-xs text-ink-dark backdrop-blur-sm'>
+              {t('project.illustrative')} · {platform}
+            </span>
+          )}
+        </>
+      ) : (
+        <div class='flex size-full items-center justify-center'>
+          <div
+            class:list={[
+              'absolute inset-0 text-line dark:text-line-dark',
+              pattern,
+            ]}
+            aria-hidden='true'
+          />
+          <IllustrationIcon
+            class='relative size-14 text-brand dark:text-brand-dark'
+            aria-hidden='true'
+          />
+        </div>
+      )
+    }
+  </div>
 
-  <div class='p-5'>
-    <h3 class='text-xl font-semibold'>{title}</h3>
+  <div>
+    {
+      isPrivate && (
+        <span class='inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent dark:border-accent-dark/40 dark:bg-accent-dark/10 dark:text-accent-dark'>
+          <LockIcon class='size-3.5' aria-hidden='true' />
+          {t('project.private')}
+        </span>
+      )
+    }
 
-    <p class='mt-3 leading-7'>
+    <h3 class='mt-3 text-2xl font-semibold'>{title}</h3>
+
+    <p class='mt-1 font-medium text-brand dark:text-brand-dark'>
+      {company} · {period}
+    </p>
+    <p class='text-sm text-ink/60 dark:text-ink-dark/60'>{role}</p>
+
+    <p class='mt-3 leading-7 text-ink/70 dark:text-ink-dark/70'>
       {description}
     </p>
 
-    <p class='mt-4 text-sm text-brand dark:text-brand-dark'>
-      {technologies}
-    </p>
+    <ul class='mt-4 flex flex-wrap gap-2'>
+      {
+        technologies.map((technology) => (
+          <li class='inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/80 px-3 py-1 text-xs dark:border-line-dark dark:bg-surface-dark/80'>
+            {technology.icon && (
+              <svg
+                class='size-3.5 shrink-0'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                aria-hidden='true'
+              >
+                <path d={technology.icon.path} />
+              </svg>
+            )}
+            {technology.name}
+          </li>
+        ))
+      }
+    </ul>
 
     {
       (codeUrl || demoUrl) && (
-        <div class='mt-5 flex gap-3'>
+        <div class='mt-5 flex flex-wrap gap-3'>
           {codeUrl && (
             <a
               href={codeUrl}
               target='_blank'
               rel='noopener noreferrer'
-              class='text-sm font-medium text-accent underline hover:text-brand dark:text-accent-dark dark:hover:text-brand-dark'
+              class={linkClass}
             >
               {t('project.code')}
             </a>
           )}
-
           {demoUrl && (
             <a
               href={demoUrl}
               target='_blank'
               rel='noopener noreferrer'
-              class='text-sm font-medium text-accent underline hover:text-brand dark:text-accent-dark dark:hover:text-brand-dark'
+              class={linkClass}
             >
               {t('project.demo')}
             </a>

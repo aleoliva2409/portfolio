@@ -43,12 +43,14 @@ export const ui = {
     'skills.backend': 'Back-end',
     'skills.tools': 'Herramientas e infraestructura',
 
-    'projects.badge': 'En construcción',
-    'projects.title': 'Próximamente',
+    'projects.badge': 'En desarrollo',
+    'projects.title': 'Proyecto personal',
     'projects.description':
-      'Estoy preparando esta sección con proyectos propios. Mientras tanto, puedes ver mi código en GitHub.',
+      'Pronto va a estar acá, con código y demo. Mientras tanto, puedes ver mi código en GitHub.',
     'projects.github': 'Ver mi GitHub',
 
+    'project.private': 'Proyecto privado',
+    'project.illustrative': 'Imagen ilustrativa',
     'project.screenshot': 'Captura de',
     'project.code': 'Código',
     'project.demo': 'Demo',
@@ -95,12 +97,14 @@ export const ui = {
     'skills.backend': 'Back-end',
     'skills.tools': 'Tools & infrastructure',
 
-    'projects.badge': 'In progress',
-    'projects.title': 'Coming soon',
+    'projects.badge': 'In development',
+    'projects.title': 'Personal project',
     'projects.description':
-      "I'm putting together this section with my own projects. In the meantime, you can check out my code on GitHub.",
+      "It'll be here soon, with code and a live demo. In the meantime, you can check out my code on GitHub.",
     'projects.github': 'See my GitHub',
 
+    'project.private': 'Private project',
+    'project.illustrative': 'Illustrative image',
     'project.screenshot': 'Screenshot of',
     'project.code': 'Code',
     'project.demo': 'Demo',

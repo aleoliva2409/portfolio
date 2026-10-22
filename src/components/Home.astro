@@ -8,11 +8,14 @@ import Hero from '@/components/Hero.astro';
 import Timeline from '@/components/Timeline.astro';
 import Skills from '@/components/Skills.astro';
 import AboutMeText from '@/components/AboutMeText.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
 import ProjectsComingSoon from '@/components/ProjectsComingSoon.astro';
 import SectionContainer from '@/components/SectionContainer.astro';
+import { PROJECTS } from '@/data/projects';
 import { getLang, useTranslations } from '@/i18n/utils';
 
-const t = useTranslations(getLang(Astro.currentLocale));
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
 <Hero />
@@ -41,7 +44,15 @@ const t = useTranslations(getLang(Astro.currentLocale));
     {t('section.projects')}
   </h2>
 
-  <ProjectsComingSoon />
+  <div class='flex flex-col gap-14'>
+    {
+      PROJECTS[lang].map((project, index) => (
+        <ProjectCard project={project} reversed={index % 2 === 1} />
+      ))
+    }
+
+    <ProjectsComingSoon />
+  </div>
 </SectionContainer>
 
 <SectionContainer id='about-me' classes='my-16 scroll-mt-24'>
