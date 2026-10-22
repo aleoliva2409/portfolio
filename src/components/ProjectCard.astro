@@ -17,6 +17,7 @@ const {
   period,
   role,
   description,
+  modules,
   technologies,
   isPrivate,
   illustration,
@@ -110,6 +111,30 @@ const linkClass =
     <p class='mt-3 leading-7 text-ink/70 dark:text-ink-dark/70'>
       {description}
     </p>
+
+    {
+      modules &&
+        (modules.some((module) => module.detail) ? (
+          <ul class='mt-3 space-y-2 border-l-2 border-brand/30 pl-4 dark:border-brand-dark/30'>
+            {modules.map((module) => (
+              <li class='text-sm leading-6 text-ink/70 dark:text-ink-dark/70'>
+                <span class='font-semibold text-ink dark:text-ink-dark'>
+                  {module.name}
+                </span>
+                {module.detail && <> · {module.detail}</>}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul class='mt-3 flex flex-wrap gap-1.5'>
+            {modules.map((module) => (
+              <li class='rounded-md bg-brand/10 px-2 py-0.5 text-xs font-medium text-brand dark:bg-brand-dark/10 dark:text-brand-dark'>
+                {module.name}
+              </li>
+            ))}
+          </ul>
+        ))
+    }
 
     <ul class='mt-4 flex flex-wrap gap-2'>
       {
